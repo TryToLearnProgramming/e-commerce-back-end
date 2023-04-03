@@ -45,13 +45,10 @@ jobs:
           ref: k-argo
           # token: ${{ secrets.RIMSYS_REPO_PAT }}
       
-      - name: update kustomization
+      - name: update kustomization in gitops
         run:  |
           cd gitops
           sed -Ei "/\-\ name\:\ sami203\/e\-commerce\-back\-end$/{n;s/\w+$/${{ github.sha }}/}" ./deployments/node-app/kustomization.yaml
-
-      - name: Deploy latest
-        run: |
           git config --global user.email "samivivake@gmail.com"
           git config --global user.name "gitops"
           git add .
