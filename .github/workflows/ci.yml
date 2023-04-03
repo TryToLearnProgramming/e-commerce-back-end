@@ -43,7 +43,7 @@ jobs:
           repository: TryToLearnProgramming/gitops
           path: ./gitops
           ref: k-argo
-          # token: ${{ secrets.RIMSYS_REPO_PAT }}
+          token: ${{ secrets.REPO_PAT }}
       
       - name: update kustomization in gitops
         run:  |
